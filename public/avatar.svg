@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 613" width="440" height="613" role="img" aria-label="Profile placeholder">
+  <!-- Placeholder portrait. Replace with a real photo: drop e.g. avatar.png in
+       /public and point site.avatarUrl at it. Aspect ratio 0.718 matches the
+       ProfileCard frame. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#27272a"/>
+      <stop offset="55%" stop-color="#52525b"/>
+      <stop offset="100%" stop-color="#a1a1aa"/>
+    </linearGradient>
+    <radialGradient id="vig" cx="50%" cy="38%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.30"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="440" height="613" fill="url(#bg)"/>
+  <rect width="440" height="613" fill="url(#vig)"/>
+
+  <!-- Simple bust silhouette so the frame reads as a portrait. -->
+  <g fill="#ffffff" fill-opacity="0.22">
+    <circle cx="220" cy="248" r="86"/>
+    <path d="M220 356c-84 0-152 54-152 121v136h304V477c0-67-68-121-152-121z"/>
+  </g>
+
+  <text x="220" y="272" text-anchor="middle"
+        font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif"
+        font-size="96" font-weight="700" fill="#ffffff" fill-opacity="0.95"
+        letter-spacing="-3">AC</text>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 680" width="520" height="680">
+  <!-- Placeholder portrait that sits behind the hero name.
+       Replace with a cut-out photo (transparent PNG/WebP works best) and point
+       site.heroPhoto at it. -->
+  <defs>
+    <linearGradient id="body" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0%" stop-color="#3f3f46"/>
+      <stop offset="100%" stop-color="#a1a1aa"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="42%" r="50%">
+      <stop offset="0%" stop-color="#71717a" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#71717a" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Softens the base of the silhouette so it melts into the page. -->
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="72%" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <mask id="fadeMask">
+      <rect width="520" height="680" fill="url(#fade)"/>
+    </mask>
+  </defs>
+
+  <rect width="520" height="680" fill="url(#halo)"/>
+
+  <g mask="url(#fadeMask)" fill="url(#body)" opacity="0.9">
+    <circle cx="260" cy="228" r="118"/>
+    <path d="M260 372c-116 0-210 74-210 166v142h420V538c0-92-94-166-210-166z"/>
+  </g>
+</svg>
