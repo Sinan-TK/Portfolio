@@ -39,7 +39,13 @@ export function SkillsGrid() {
     .filter((group) => group.group.toLowerCase() !== "craft")
     .flatMap((group) => group.items);
 
-  const dark = resolvedTheme === "dark";
+  /* Gated on `mounted`, like ThemeToggle. next-themes already knows the theme
+     on the client's very first render but the server does not, and `dark` goes
+     straight into rendered markup below (the logo colour is baked into the
+     image URL). Reading it before mount makes the hydration render disagree
+     with the server HTML — React reports a mismatch and gives up patching that
+     subtree. The opacity gate below hides this first light-themed pass. */
+  const dark = mounted && resolvedTheme === "dark";
   const { columns, rows } = layoutFor(width, tools.length);
 
   const images = tools.map((name) => ({

@@ -103,6 +103,20 @@
   }
 
   html {
+    /* Stops horizontal scroll from the decorative off-canvas elements (the
+       section card's 100vw cords).
+
+       `clip`, not `hidden`: `hidden` makes the element a scroll container,
+       which would break every `position: sticky` on the page — that's how the
+       section indicator pins. `clip` clips without scrolling, so sticky is
+       unaffected.
+
+       It has to be declared on *both* html and body. On the root element the
+       value is supposed to propagate to the viewport, but Chrome doesn't
+       propagate `clip` — it lands on nothing and the overflow goes
+       uncontained. Body is the one that actually does the clipping here; the
+       html declaration is for browsers that do propagate it. */
+    overflow-x: clip;
     scroll-behavior: smooth;
     /* Offset for the sticky header when jumping to #anchors. */
     scroll-padding-top: 5.5rem;
@@ -117,8 +131,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    /* Prevents horizontal scroll from decorative off-canvas elements. */
-    overflow-x: hidden;
+    /* See the html rule above — this is the declaration that actually clips. */
+    overflow-x: clip;
     @apply bg-background text-foreground;
   }
 

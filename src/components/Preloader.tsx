@@ -163,11 +163,17 @@ export function Preloader() {
               transition: { duration: 0.85, ease: EASE },
             }}
           >
-            {/* dir="auto" so Arabic renders right-to-left. */}
+            {/* dir="auto" so Arabic renders right-to-left.
+                Fluid type via clamp, like every other heading on the site — the
+                old text-4xl/sm:text-6xl pair jumped at 640px and then stayed put,
+                so it read oversized on small phones and undersized on wide
+                screens. max-w-full + border-box padding keeps a long greeting
+                inside the viewport instead of running off the edge, and
+                break-words catches the ones with no space to wrap at. */}
             <span
               dir="auto"
               style={{ fontFamily: FONT_STACK }}
-              className="px-6 text-4xl font-semibold tracking-[-0.03em] sm:text-6xl"
+              className="max-w-full px-6 text-center text-[clamp(2rem,9vw,4rem)] leading-tight font-semibold tracking-[-0.03em] break-words"
             >
               {greeting}
             </span>

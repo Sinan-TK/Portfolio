@@ -74,8 +74,8 @@ export type NavItem = {
 
 export const site = {
   /* -- Identity ----------------------------------------------------------- */
-  name: "Alex Chen",
-  firstName: "Alex",
+  name: "Muhammed Sinan TK",
+  firstName: "Sinan",
   role: "Full-Stack Engineer",
 
   /* Cycled under the hero name by RotatingText. Keep them short — they all
@@ -124,32 +124,32 @@ export const site = {
   handle: "alexchen",
 
   /* -- Contact ------------------------------------------------------------ */
-  email: "hello@alexchen.dev",
+  email: "sinantkthonikadavath@gmail.com",
   /* Optional — leave as "" to hide. */
-  phone: "",
+  phone: "+91 70121 93446",
   /* Put a real PDF at /public/resume.pdf, or set to "" to hide the button. */
   resumeUrl: "/resume.pdf",
 
   /* -- Domain (used for canonical URLs, sitemap, OG tags) ------------------ */
   /* NO trailing slash. Must be the real production URL for SEO to work. */
-  url: "https://alexchen.dev",
+  url: "https://sinantk.dev",
 
   /* -- Social links. Delete any you don't use. ---------------------------- */
   socials: [
-    { name: "GitHub", url: "https://github.com/alexchen", icon: "github" },
-    { name: "LinkedIn", url: "https://linkedin.com/in/alexchen", icon: "linkedin" },
-    { name: "X", url: "https://x.com/alexchen", icon: "twitter" },
-    { name: "Email", url: "mailto:hello@alexchen.dev", icon: "mail" },
+    { name: "GitHub", url: "https://github.com/sinantk", icon: "github" },
+    { name: "LinkedIn", url: "https://linkedin.com/in/sinantk", icon: "linkedin" },
+    { name: "X", url: "https://x.com/sinantk", icon: "twitter" },
+    { name: "Email", url: "mailto:sinantkthonikadavath@gmail.com", icon: "mail" },
   ] as Social[],
 
   /* -- SEO ---------------------------------------------------------------- */
   seo: {
     /* Appears in the browser tab and Google's blue link. ~60 chars max. */
-    title: "Alex Chen — Full-Stack Engineer",
-    titleTemplate: "%s | Alex Chen",
+    title: "Muhammed Sinan TK - Full-Stack Engineer",
+    titleTemplate: "%s | Muhammed Sinan TK",
     /* Google's snippet. 150–160 chars is the sweet spot. */
     description:
-      "Alex Chen is a full-stack engineer in San Francisco building fast, accessible web products with React, Next.js, TypeScript and Go. View projects and get in touch.",
+      "Muhammed Sinan TK is a full-stack engineer in San Francisco building fast, accessible web products with React, Next.js, TypeScript and Go. View projects and get in touch.",
     keywords: [
       "full-stack engineer",
       "React developer",
@@ -158,7 +158,7 @@ export const site = {
       "web developer portfolio",
       "San Francisco software engineer",
       "frontend engineer",
-      "Alex Chen",
+      "Muhammed Sinan TK",
     ],
     /* Two-letter language code for <html lang="…">. */
     locale: "en_US",
@@ -166,7 +166,7 @@ export const site = {
     /* Add once you have them; leave "" to skip the meta tag. */
     googleSiteVerification: "",
     /* Your @handle without the @, for Twitter/X cards. */
-    twitterHandle: "alexchen",
+    twitterHandle: "sinantk",
   },
 
   /* -- Preloader ---------------------------------------------------------- */
@@ -282,7 +282,7 @@ export const site = {
       ],
       tags: ["Next.js", "Go", "ClickHouse", "WebSockets"],
       liveUrl: "https://example.com",
-      repoUrl: "https://github.com/alexchen",
+      repoUrl: "https://github.com/sinantk",
       featured: true,
       image: "",
       gradient: ["#3f3f46", "#a1a1aa"],
@@ -294,7 +294,7 @@ export const site = {
         "An offline-first project board with CRDT-based sync. Works fully without a network and reconciles conflict-free when you come back online.",
       tags: ["React", "TypeScript", "IndexedDB", "Yjs"],
       liveUrl: "https://example.com",
-      repoUrl: "https://github.com/alexchen",
+      repoUrl: "https://github.com/sinantk",
       featured: true,
       image: "",
       gradient: ["#18181b", "#71717a"],
@@ -306,7 +306,7 @@ export const site = {
         "An accessible React component library with 48 primitives, full keyboard support and a 14 kB gzipped core. 3.2k stars on GitHub.",
       tags: ["React", "Radix", "Tailwind", "Storybook"],
       liveUrl: "https://example.com",
-      repoUrl: "https://github.com/alexchen",
+      repoUrl: "https://github.com/sinantk",
       featured: false,
       image: "",
       gradient: ["#52525b", "#d4d4d8"],
@@ -318,7 +318,7 @@ export const site = {
         "A zero-config deployment CLI for monorepos. Detects your framework, builds a minimal container and ships it in under 60 seconds.",
       tags: ["Go", "Docker", "AWS"],
       liveUrl: "",
-      repoUrl: "https://github.com/alexchen",
+      repoUrl: "https://github.com/sinantk",
       featured: false,
       image: "",
       gradient: ["#27272a", "#8f8f99"],
@@ -342,7 +342,7 @@ export const site = {
         "A browser tool for generating WCAG-compliant color systems. Computes contrast across every pair and exports to Tailwind, CSS or Figma.",
       tags: ["React", "Canvas", "Color Science"],
       liveUrl: "https://example.com",
-      repoUrl: "https://github.com/alexchen",
+      repoUrl: "https://github.com/sinantk",
       featured: false,
       image: "",
       gradient: ["#3f3f46", "#e4e4e7"],

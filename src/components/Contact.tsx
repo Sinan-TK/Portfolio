@@ -77,9 +77,12 @@ export function ContactPanel({ progress }: { progress: MotionValue<number> }) {
 
   return (
     <div className="grid items-center gap-12 px-6 pt-8 pb-14 sm:px-10 lg:grid-cols-[0.85fr_1.15fr] lg:px-14 lg:text-left">
+      {/* min-w-0 on both columns: a grid item defaults to `min-width: auto`,
+          so anything with a wide min-content — the email pill below — would
+          otherwise set a floor on the column and push it past the card. */}
       <motion.div
         style={{ opacity: cardO, y: cardY }}
-        className="flex justify-center lg:justify-start"
+        className="flex min-w-0 justify-center lg:justify-start"
       >
         <ProfileCard
           avatarUrl={site.avatarUrl}
@@ -100,7 +103,7 @@ export function ContactPanel({ progress }: { progress: MotionValue<number> }) {
         />
       </motion.div>
 
-      <div className="text-center lg:text-left">
+      <div className="min-w-0 text-center lg:text-left">
         <motion.p
           style={{ opacity: eyebrowO, y: eyebrowY }}
           className="flex items-center justify-center gap-3.5 font-mono text-sm font-medium tracking-[0.16em] text-accent-600 uppercase sm:text-base lg:justify-start dark:text-accent-400"
@@ -130,15 +133,24 @@ export function ContactPanel({ progress }: { progress: MotionValue<number> }) {
           style={{ opacity: actionsO, y: actionsY }}
           className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start"
         >
-          <Magnetic className="w-full sm:w-auto">
+          <Magnetic className="w-full min-w-0 sm:w-auto">
+            {/* min-h rather than a fixed h: an email address is one unbreakable
+                word, so on a narrow phone it has to be allowed to fold onto a
+                second line and take the pill with it. */}
             <a
               href={`mailto:${site.email}`}
-              className="group inline-flex h-14 w-full items-center justify-center gap-2 rounded-full bg-fg px-8 text-[15px] font-medium text-white shadow-xl shadow-black/15 transition-shadow hover:shadow-2xl sm:w-auto dark:bg-white dark:text-black dark:shadow-white/10"
+              className="group inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-fg px-6 py-3 text-[15px] font-medium text-white shadow-xl shadow-black/15 transition-shadow hover:shadow-2xl sm:w-auto sm:px-8 dark:bg-white dark:text-black dark:shadow-white/10"
             >
-              {site.email}
+              {/* wrap-anywhere (overflow-wrap: anywhere) only breaks when it
+                  has to, so short addresses still sit on one line exactly as
+                  before. Unlike break-words it also shrinks the min-content
+                  width, which is what stops the pill setting a floor on the
+                  whole column. */}
+              <span className="min-w-0 wrap-anywhere">{site.email}</span>
               <ArrowUpRight
                 size={17}
-                className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden
+                className="shrink-0 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />
             </a>
           </Magnetic>
