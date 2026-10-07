@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, useTransform, type MotionValue } from "framer-motion";
-import { Check, Copy, ArrowUpRight } from "lucide-react";
+import { Check, Copy, ArrowUpRight, FileText } from "lucide-react";
 
 import { site } from "@/config/site";
 import { Magnetic } from "./Magnetic";
@@ -173,6 +173,24 @@ export function ContactPanel({ progress }: { progress: MotionValue<number> }) {
             </li>
           ))}
         </motion.ul>
+
+        {/* Hidden when resumeUrl is empty. */}
+        {site.resumeUrl && (
+          <motion.div
+            style={{ opacity: socialsO, y: socialsY }}
+            className="mt-4 flex justify-center lg:justify-start"
+          >
+            <a
+              href={site.resumeUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="inline-flex h-12 items-center gap-2 rounded-full border border-black/12 px-6 text-[15px] font-medium transition-colors hover:bg-black/[0.04] dark:border-white/18 dark:hover:bg-white/[0.06]"
+            >
+              <FileText size={16} aria-hidden />
+              Resume
+            </a>
+          </motion.div>
+        )}
       </div>
     </div>
   );

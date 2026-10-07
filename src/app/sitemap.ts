@@ -2,21 +2,53 @@ import type { MetadataRoute } from "next";
 import { site } from "@/config/site";
 import { projectHref } from "@/lib/projects";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+/* Rendered once at build time and served as a static /sitemap.xml. */
+export const dynamic = "force-static";
 
-  return [
+/**
+ * When the content last meaningfully changed (YYYY-MM-DD).
+ *
+ * Deliberately a fixed date and not `new Date()`: a lastmod that changes on
+ * every build tells crawlers nothing and teaches them to ignore the field.
+ * Bump it when you edit the site's content.
+ */
+const LAST_UPDATED = "2026-10-07";
+
+const origin = site.url.replace(/\/+$/, "");
+
+/** Absolute URL for a path that starts with "/" ("/" is the home page). */
+const absolute = (path: string) => `${origin}${path}`;
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date(LAST_UPDATED);
+
+  const entries: MetadataRoute.Sitemap = [
     {
-      url: site.url,
-      lastModified: now,
+      url: absolute("/"),
+      lastModified,
       changeFrequency: "monthly",
       priority: 1,
     },
     ...site.projects.map((project) => ({
-      url: `${site.url}${projectHref(project)}`,
-      lastModified: now,
+      url: absolute(projectHref(project)),
+      lastModified,
       changeFrequency: "yearly" as const,
       priority: 0.8,
     })),
   ];
+
+  /* A locally hosted resume PDF is indexable content too. External links and
+     an empty setting (button hidden) are skipped. */
+  if (site.resumeUrl?.startsWith("/")) {
+    entries.push({
+      url: absolute(site.resumeUrl),
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.5,
+    });
+  }
+
+  /* Sitemaps must not list the same URL twice. */
+  const seen = new Set<string>();
+  return entries.filter(({ url }) => !seen.has(url) && !!seen.add(url));
 }
