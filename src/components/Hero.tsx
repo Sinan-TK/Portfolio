@@ -7,9 +7,8 @@ import { ArrowUpRight } from "lucide-react";
 import { site } from "@/config/site";
 import { tileFor } from "@/lib/project-art";
 import { useIntroReady } from "@/lib/intro";
+import { LEDBanner } from "./LEDBanner";
 import { SocialIcon } from "./SocialIcon";
-import { FerrofluidBackground } from "./FerrofluidBackground";
-import RotatingText from "./RotatingText";
 import Stack from "./Stack";
 
 const EASE = [0.21, 0.47, 0.32, 0.98] as const;
@@ -120,91 +119,64 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative flex min-h-[100svh] items-center justify-center overflow-hidden py-28"
+      className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-white py-28 dark:bg-zinc-950"
     >
-      {/* Background image + scrim. The scrim is what keeps the headline
-          readable over an arbitrary photo. */}
-      {site.heroBackground && (
-        <div aria-hidden className="absolute inset-0 -z-10">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={site.heroBackground}
-            alt=""
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-white/78 backdrop-blur-[2px] dark:bg-zinc-950/78" />
-        </div>
-      )}
 
-      {/* Ferrofluid sits above any background image (both -z-10, so DOM order
-          decides) and below the content. */}
-      <FerrofluidBackground />
-
-      {/* Fades the hero into the next section. Independent of the background
-          image, so it still softens the edge on a plain background. */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-white dark:to-zinc-950"
-      />
+      {/* Tech ticker, centred in the hero and layered behind the photo and
+          name (they sit in the transformed container below, which paints
+          after this). Purely decorative here, so it ignores the pointer. */}
+      <div className="pointer-events-none absolute inset-x-0 top-1/2 z-0 -translate-y-1/2">
+        <LEDBanner />
+      </div>
 
       {/* translate rather than margin: the section centres its content, so a
           transform shifts the block down without the centring cancelling it. */}
-      <div className="container-page relative flex translate-y-6 flex-col items-center text-center sm:translate-y-10">
-        {/* Photo, behind the name. Padding below pushes the headline down so it
-            overlaps the lower part of the portrait. */}
+      <div /* --photo is the portrait's width: capped by the viewport width, an absolute
+          maximum, and the viewport *height* (less the section padding and the
+          translate below), so on short screens the photo can't push everything
+          else off the fold. The name scales from it too. */
+      className="container-page pointer-events-none relative flex translate-y-6 flex-col items-center text-center [--photo:min(95vw,47rem,max(14rem,calc(100svh_-_16rem)))] sm:translate-y-10">
+        {/* Photo, in normal flow, so it sets the height of this block. The name
+            below is positioned against the block's bottom edge, so it stays on
+            the lower part of the portrait whatever the screen size. */}
         {site.heroPhoto && (
           <motion.div
             aria-hidden
             initial={{ opacity: 0, scale: 0.94, y: 26 }}
             animate={play ? { opacity: 1, scale: 1, y: 0 } : undefined}
             transition={{ delay: PHOTO_DELAY, duration: 1, ease: EASE }}
-            className="pointer-events-none absolute top-0 left-1/2 -z-[1] w-[min(58vw,24rem)] -translate-x-1/2 select-none"
+            className="pointer-events-none relative w-[var(--photo)] select-none"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={site.heroPhoto} alt="" className="w-full" />
+            <img src={site.heroPhoto} alt="" className="w-full grayscale" />
           </motion.div>
         )}
 
-        {/* I'm <name> — pushed down over the photo. z-10 keeps it above the
-            portrait regardless of how the transform stacking resolves. */}
+        {/* Name, pinned to the bottom of the photo. z-10 keeps it above the
+            portrait. */}
         <h1
-          className={`relative z-10 text-[clamp(2.75rem,10vw,7rem)] font-semibold leading-[1.02] tracking-[-0.04em] ${
-            /* Lower bound trimmed so the name clears the fold on short
-               phones; the desktop offset is unchanged. */
-            site.heroPhoto ? "pt-[clamp(8.5rem,26vw,21rem)]" : ""
+          className={`z-10 text-[max(1.25rem,calc(var(--photo)*0.093))] font-semibold leading-[1.02] tracking-[-0.04em] ${
+            site.heroPhoto
+              ? "absolute inset-x-0 bottom-[-2%] flex justify-center"
+              : "relative"
           }`}
         >
           {/* Solid fill, not `text-gradient`: that clips a background to the
               text, and every letter here carries its own transform from the
               reveal. A transformed child can't inherit the clipped background,
               so the letters render transparent with nothing behind them. */}
-          <LetterReveal
-            text={site.name}
-            play={play}
-            delay={NAME_DELAY}
-            className="text-fg dark:text-white"
-          />
+          {/* Same surface as the header pills, so the name stays legible over
+              the photo. */}
+          <span className="inline-block whitespace-nowrap rounded-3xl border border-black/[0.06] bg-white/50 px-[max(1rem,calc(var(--photo)*0.055))] py-[max(0.5rem,calc(var(--photo)*0.016))] backdrop-blur-md dark:border-white/10 dark:bg-white/[0.04]">
+            <LetterReveal
+              text={site.name}
+              play={play}
+              delay={NAME_DELAY}
+              className="text-fg dark:text-white"
+            />
+          </span>
         </h1>
 
-        {/* Rotating roles */}
-        <motion.div
-          initial={{ opacity: 0, y: 18, filter: "blur(6px)" }}
-          animate={play ? { opacity: 1, y: 0, filter: "blur(0px)" } : undefined}
-          transition={{ delay: REST_DELAY, duration: 0.7, ease: EASE }}
-          className="relative mt-6 flex items-center gap-3 text-lg font-medium sm:text-2xl"
-        >
-          <span className="text-black/45 dark:text-white/45">I&apos;m a</span>
-          <RotatingText
-            texts={site.roles}
-            rotationInterval={2200}
-            splitBy="characters"
-            staggerDuration={0.02}
-            staggerFrom="first"
-            mainClassName="inline-flex overflow-hidden rounded-xl bg-fg px-3 py-1 text-white sm:px-4 sm:py-1.5 dark:bg-white dark:text-black"
-            splitLevelClassName="overflow-hidden"
-            transition={{ type: "spring", damping: 28, stiffness: 320 }}
-          />
-        </motion.div>
       </div>
 
       {/* Socials, bottom-right. */}

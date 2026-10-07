@@ -154,16 +154,9 @@ export function Header() {
                     <Link
                       href={to("#contact")}
                       /* Hidden on phones — the drawer already has Contact. */
-                      className="group hidden h-11 items-center overflow-hidden rounded-full px-3 text-sm font-medium transition-colors hover:bg-black/5 sm:inline-flex sm:px-4 dark:hover:bg-white/10"
+                      className="hidden h-11 items-center rounded-full px-3 text-sm font-medium sm:inline-flex sm:px-4"
                     >
-                      <span className="relative block h-5 overflow-hidden">
-                        <span className="block leading-5 transition-transform duration-300 ease-out group-hover:-translate-y-full">
-                          Connect
-                        </span>
-                        <span className="absolute inset-x-0 top-0 block translate-y-full whitespace-nowrap leading-5 text-accent-600 transition-transform duration-300 ease-out group-hover:translate-y-0 dark:text-accent-400">
-                          Let&apos;s talk
-                        </span>
-                      </span>
+                      Connect
                     </Link>
                   </motion.div>
                 )}

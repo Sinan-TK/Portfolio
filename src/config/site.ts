@@ -95,7 +95,7 @@ export const site = {
 
   /* Your photo, sitting behind the hero name. A cut-out with a transparent
    * background reads best — the name overlaps its lower half. Set "" to hide. */
-  heroPhoto: "/photo.svg",
+  heroPhoto: "/squaredp.png",
 
   /* One line under the hero. Sell yourself in ~20 words. */
   tagline:
@@ -103,7 +103,8 @@ export const site = {
 
   /* 2–3 short paragraphs for the About section. */
   about: [
-    "I'm a full-stack engineer with 6+ years of experience turning ambiguous ideas into products people actually use. Most of my work lives in the React and TypeScript ecosystem, but I'm just as comfortable writing Go services or tuning Postgres queries.",
+    "I'm a full-stack engineer with 1 year of experience turning ambiguous ideas into products people actually use. Most of my work lives in the React and TypeScript ecosystem.",
+    "Backend is where I enjoy working the most — designing APIs, modelling data in Postgres or MongoDB, and making the whole system fast and reliable. I'm a quick learner who likes picking up new technologies, and I'd rather learn whatever a project needs than force the same tools onto every problem.",
     "I care a lot about the details that don't show up in a demo: bundle size, keyboard navigation, error states, and the 3 a.m. pager. I believe the best interfaces feel obvious in hindsight.",
     "Outside of work you'll find me contributing to open source, writing about web performance, or failing to beat my personal best on a bouldering problem.",
   ],
@@ -119,9 +120,9 @@ export const site = {
   /* -- Profile card (hero) ------------------------------------------------ */
   /* Swap in a real photo: drop it in /public and point this at it, e.g.
    * "/me.jpg". A portrait crop around 3:4 fits the card frame best. */
-  avatarUrl: "/avatar.svg",
+  avatarUrl: "/profile.png",
   /** Shown under your name on the card, rendered as @handle. */
-  handle: "alexchen",
+  handle: "sinantk",
 
   /* -- Contact ------------------------------------------------------------ */
   email: "sinantkthonikadavath@gmail.com",
@@ -136,9 +137,9 @@ export const site = {
 
   /* -- Social links. Delete any you don't use. ---------------------------- */
   socials: [
-    { name: "GitHub", url: "https://github.com/sinantk", icon: "github" },
-    { name: "LinkedIn", url: "https://linkedin.com/in/sinantk", icon: "linkedin" },
-    { name: "X", url: "https://x.com/sinantk", icon: "twitter" },
+    { name: "GitHub", url: "https://github.com/Sinan-TK", icon: "github" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/muhammedsinantk", icon: "linkedin" },
+    { name: "X", url: "https://x.com/sinantk", icon: "x" },
     { name: "Email", url: "mailto:sinantkthonikadavath@gmail.com", icon: "mail" },
   ] as Social[],
 
@@ -149,7 +150,7 @@ export const site = {
     titleTemplate: "%s | Muhammed Sinan TK",
     /* Google's snippet. 150–160 chars is the sweet spot. */
     description:
-      "Muhammed Sinan TK is a full-stack engineer in San Francisco building fast, accessible web products with React, Next.js, TypeScript and Go. View projects and get in touch.",
+      "Muhammed Sinan TK is a full-stack engineer in San Francisco building fast, accessible web products with React, Next.js and TypeScript. View projects and get in touch.",
     keywords: [
       "full-stack engineer",
       "React developer",
@@ -233,17 +234,15 @@ export const site = {
         "Next.js",
         "TypeScript",
         "Tailwind CSS",
-        "Framer Motion",
-        "React Query",
       ],
     },
     {
       group: "Backend",
-      items: ["Node.js", "PostgreSQL", "Redis", "Prisma"],
+      items: ["Node.js", "PostgreSQL", "MongoDB", "Redis", "Prisma"],
     },
     {
       group: "Infra & Tooling",
-      items: ["AWS", "Docker", "GitHub Actions", "Vercel"],
+      items: ["AWS", "Docker", "GitHub Actions", "Vercel", "Git", "Figma"],
     },
     {
       group: "Craft",
@@ -253,7 +252,7 @@ export const site = {
 
   /* -- Stats strip. Keep to 3–4 items. ------------------------------------ */
   stats: [
-    { value: "6+", label: "Years experience" },
+    { value: "1", label: "Year experience" },
     { value: "40+", label: "Projects shipped" },
     { value: "12k", label: "GitHub stars" },
     { value: "99", label: "Avg Lighthouse" },

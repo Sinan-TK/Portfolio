@@ -47,6 +47,7 @@ export function SkillsGrid() {
      subtree. The opacity gate below hides this first light-themed pass. */
   const dark = mounted && resolvedTheme === "dark";
   const { columns, rows } = layoutFor(width, tools.length);
+  const phone = width < 480;
 
   const images = tools.map((name) => ({
     src: toolLogo(name, dark ? "fafafa" : "18181b"),
@@ -57,7 +58,7 @@ export function SkillsGrid() {
     <TooltipProvider delayDuration={120} skipDelayDuration={300}>
     <div
       /* The grid sizes to its container, so the height has to be explicit. */
-      className="h-[26rem] w-full sm:h-[30rem] lg:h-[34rem]"
+      className="h-[34rem] w-full sm:h-[30rem] lg:h-[34rem]"
       // Held back until mounted so the logo colour matches the resolved theme
       // rather than flashing the wrong one.
       style={{ opacity: mounted ? 1 : 0, transition: "opacity 300ms" }}
@@ -79,7 +80,8 @@ export function SkillsGrid() {
         gap={10}
         rounded={16}
         padding="0px"
-        logoScale={2}
+        logoScale={phone ? 3 : 2}
+        tilePadding={phone ? "10px" : "20px 12px"}
         cardFill={dark ? "#0c0c0e" : "#ffffff"}
         cardBorder={dark ? "#232326" : "#e6e6e9"}
         shadow

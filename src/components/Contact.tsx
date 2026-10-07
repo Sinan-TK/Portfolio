@@ -85,7 +85,7 @@ export function ContactPanel({ progress }: { progress: MotionValue<number> }) {
         className="flex min-w-0 justify-center lg:justify-start"
       >
         <ProfileCard
-          avatarUrl={site.avatarUrl}
+          avatarUrl={site.heroPhoto}
           miniAvatarUrl={site.avatarUrl}
           name={site.name}
           title={site.role}

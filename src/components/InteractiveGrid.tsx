@@ -23,6 +23,7 @@ const DEFAULTS = {
   gap: 0,
   rounded: 8,
   logoScale: 3,
+  tilePadding: "20px 12px",
   cardFill: "#000000",
   cardBorder: "#292929",
   shadow: false,
@@ -96,6 +97,8 @@ interface InteractiveGridProps {
   gap: number;
   rounded: number;
   logoScale: number;
+  /** Padding inside each tile, around the logo. */
+  tilePadding: string;
   cardFill: string;
   cardBorder: string;
   shadow: boolean;
@@ -135,6 +138,7 @@ export default function InteractiveGrid(props: Partial<InteractiveGridProps>) {
     gap = DEFAULTS.gap,
     rounded = DEFAULTS.rounded,
     logoScale = DEFAULTS.logoScale,
+    tilePadding = DEFAULTS.tilePadding,
     cardFill = DEFAULTS.cardFill,
     cardBorder = DEFAULTS.cardBorder,
     shadow = DEFAULTS.shadow,
@@ -264,7 +268,7 @@ export default function InteractiveGrid(props: Partial<InteractiveGridProps>) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "20px 12px",
+                padding: tilePadding,
                 background: cardFill,
                 border: `1px solid ${cardBorder}`,
                 borderRadius: rounded,
