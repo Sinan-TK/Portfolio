@@ -2,7 +2,9 @@ import type { MetadataRoute } from "next";
 import { site } from "@/config/site";
 import { projectHref } from "@/lib/projects";
 
-/* Rendered once at build time and served as a static /sitemap.xml. */
+/* Only <loc> and <lastmod> are emitted: Google documents that it ignores
+   <priority> and <changefreq>, and trusts <lastmod> only if it is accurate.
+   Rendered once at build time and served as a static /sitemap.xml. */
 export const dynamic = "force-static";
 
 /**
@@ -26,14 +28,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: absolute("/"),
       lastModified,
-      changeFrequency: "monthly",
-      priority: 1,
     },
     ...site.projects.map((project) => ({
       url: absolute(projectHref(project)),
       lastModified,
-      changeFrequency: "yearly" as const,
-      priority: 0.8,
     })),
   ];
 
@@ -43,8 +41,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entries.push({
       url: absolute(site.resumeUrl),
       lastModified,
-      changeFrequency: "yearly",
-      priority: 0.5,
     });
   }
 

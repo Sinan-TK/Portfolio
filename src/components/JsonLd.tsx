@@ -23,7 +23,7 @@ export function JsonLd() {
     email: `mailto:${site.email}`,
     jobTitle: site.role,
     description: site.tagline,
-    image: `${site.url}/opengraph-image`,
+    image: `${site.url}${site.heroPhoto}`,
     sameAs: site.socials
       .filter((s) => !s.url.startsWith("mailto:"))
       .map((s) => s.url),

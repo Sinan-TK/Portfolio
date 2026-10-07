@@ -28,6 +28,11 @@ const code = JetBrains_Mono({
  * SEO — Next.js Metadata API.
  * Everything here is derived from src/config/site.ts.
  * ------------------------------------------------------------------------ */
+const googleVerification =
+  site.seo.googleSiteVerification ||
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+  "";
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
 
@@ -77,9 +82,9 @@ export const metadata: Metadata = {
     },
   },
 
-  verification: site.seo.googleSiteVerification
-    ? { google: site.seo.googleSiteVerification }
-    : undefined,
+  /* Search Console "HTML tag" verification. Set the token in site.ts, or
+     as NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in the host's env settings. */
+  verification: googleVerification ? { google: googleVerification } : undefined,
 
   category: "technology",
   applicationName: site.seo.title,
