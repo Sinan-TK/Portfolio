@@ -133,20 +133,17 @@ export function ContactPanel({ progress }: { progress: MotionValue<number> }) {
           style={{ opacity: actionsO, y: actionsY }}
           className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start"
         >
-          <Magnetic className="w-full min-w-0 sm:w-auto">
-            {/* min-h rather than a fixed h: an email address is one unbreakable
-                word, so on a narrow phone it has to be allowed to fold onto a
-                second line and take the pill with it. */}
+          <Magnetic className="w-full min-w-0 max-sm:[container-type:inline-size] sm:w-auto">
+            {/* The address must stay on one line. Below sm the wrapper is a size
+                container and the text is sized from ITS width (cqw), minus the
+                pill's padding, arrow and gap — so it fits however much room the
+                card and page gutters leave, instead of guessing from the
+                viewport. */}
             <a
               href={`mailto:${site.email}`}
-              className="group inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-fg px-6 py-3 text-[15px] font-medium text-white shadow-xl shadow-black/15 transition-shadow hover:shadow-2xl sm:w-auto sm:px-8 dark:bg-white dark:text-black dark:shadow-white/10"
+              className="group inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-fg px-5 py-3 max-sm:text-[clamp(9px,calc((100cqw-4.5rem)/17.5),15px)] sm:text-[15px] font-medium text-white shadow-xl shadow-black/15 transition-shadow hover:shadow-2xl sm:w-auto sm:px-8 dark:bg-white dark:text-black dark:shadow-white/10"
             >
-              {/* wrap-anywhere (overflow-wrap: anywhere) only breaks when it
-                  has to, so short addresses still sit on one line exactly as
-                  before. Unlike break-words it also shrinks the min-content
-                  width, which is what stops the pill setting a floor on the
-                  whole column. */}
-              <span className="min-w-0 wrap-anywhere">{site.email}</span>
+              <span className="min-w-0 whitespace-nowrap">{site.email}</span>
               <ArrowUpRight
                 size={17}
                 aria-hidden
