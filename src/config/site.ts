@@ -110,9 +110,9 @@ export const site = {
   ],
 
   /* -- Location & availability -------------------------------------------- */
-  location: "San Francisco, CA",
-  locationShort: "SF Bay Area",
-  timezone: "PST (UTC−8)",
+  location: "Kerala, India",
+  locationShort: "Malappuram",
+  timezone: "IST (UTC+5:30)",
   /* Set to false to show a "not currently available" state. */
   available: true,
   availabilityText: "Open to new opportunities",
@@ -133,7 +133,7 @@ export const site = {
 
   /* -- Domain (used for canonical URLs, sitemap, OG tags) ------------------ */
   /* NO trailing slash. Must be the real production URL for SEO to work. */
-  url: "https://sinantk.dev",
+  url: "https://sinan-tk.in",
 
   /* -- Social links. Delete any you don't use. ---------------------------- */
   socials: [
@@ -165,7 +165,8 @@ export const site = {
       "Next.js developer",
       "TypeScript",
       "web developer portfolio",
-      "San Francisco software engineer",
+      "Kerala software engineer",
+      "India software engineer",
       "frontend engineer",
       "Muhammed Sinan TK",
     ],
@@ -261,14 +262,6 @@ export const site = {
       ],
     },
   ],
-
-  /* -- Stats strip. Keep to 3–4 items. ------------------------------------ */
-  // stats: [
-  //   { value: "1", label: "Year experience" },
-  //   { value: "40+", label: "Projects shipped" },
-  //   { value: "12k", label: "GitHub stars" },
-  //   { value: "99", label: "Avg Lighthouse" },
-  // ],
 
   /* -- Projects ----------------------------------------------------------- */
   /* `featured: true` gives the card a larger, highlighted layout.
