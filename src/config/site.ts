@@ -138,9 +138,17 @@ export const site = {
   /* -- Social links. Delete any you don't use. ---------------------------- */
   socials: [
     { name: "GitHub", url: "https://github.com/Sinan-TK", icon: "github" },
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/muhammedsinantk", icon: "linkedin" },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/muhammedsinantk",
+      icon: "linkedin",
+    },
     { name: "X", url: "https://x.com/sinantk", icon: "x" },
-    { name: "Email", url: "mailto:sinantkthonikadavath@gmail.com", icon: "mail" },
+    {
+      name: "Email",
+      url: "mailto:sinantkthonikadavath@gmail.com",
+      icon: "mail",
+    },
   ] as Social[],
 
   /* -- SEO ---------------------------------------------------------------- */
@@ -195,11 +203,15 @@ export const site = {
    * plus the separator glyphs ● • · ° ★ → ←. Keep entries short and punchy. */
   ticker: [
     "WEB DEVELOPER",
+    "FRONT-END DEVELOPER",
     "FULL-STACK ENGINEER",
     "REACT & NEXT.JS",
     "TYPESCRIPT",
     "UI ENGINEERING",
-    "OPEN TO WORK",
+    "FREELANCER",
+    "JAVASCRIPT",
+    "DOCKER",
+    "MERN-STACK DEVELOPER",
   ] as string[],
 
   /** Glyph drawn between ticker items. One of: ● • · ° ★ → ← */
@@ -229,12 +241,7 @@ export const site = {
   skills: [
     {
       group: "Frontend",
-      items: [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "Tailwind CSS",
-      ],
+      items: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     },
     {
       group: "Backend",
@@ -246,17 +253,22 @@ export const site = {
     },
     {
       group: "Craft",
-      items: ["Web Performance", "Accessibility (WCAG)", "System Design", "Testing"],
+      items: [
+        "Web Performance",
+        "Accessibility (WCAG)",
+        "System Design",
+        "Testing",
+      ],
     },
   ],
 
   /* -- Stats strip. Keep to 3–4 items. ------------------------------------ */
-  stats: [
-    { value: "1", label: "Year experience" },
-    { value: "40+", label: "Projects shipped" },
-    { value: "12k", label: "GitHub stars" },
-    { value: "99", label: "Avg Lighthouse" },
-  ],
+  // stats: [
+  //   { value: "1", label: "Year experience" },
+  //   { value: "40+", label: "Projects shipped" },
+  //   { value: "12k", label: "GitHub stars" },
+  //   { value: "99", label: "Avg Lighthouse" },
+  // ],
 
   /* -- Projects ----------------------------------------------------------- */
   /* `featured: true` gives the card a larger, highlighted layout.
@@ -265,11 +277,9 @@ export const site = {
    * screenshot instead of the gradient. */
   projects: [
     {
-      title: "Orbit Analytics",
+      title: "Jersey Garage",
       description:
-        "A real-time product analytics platform handling 2B+ events per month. Built a custom columnar query layer that cut p95 dashboard load time from 4.2s to 380ms.",
-      /* Optional — shown on /projects/orbit-analytics. Add these to any
-       * project for a fuller write-up; otherwise the description is used. */
+        "A full-stack e-commerce platform for sports jerseys, featuring product discovery, advanced filtering, cart and checkout flows, secure authentication, order management, and an admin dashboard. Built to deliver a fast, responsive shopping experience across devices.",
       overview: [
         "Orbit is a product analytics platform built for teams that had outgrown off-the-shelf tools but didn't want to run their own warehouse. It ingests roughly two billion events a month and keeps dashboards interactive while doing it.",
         "The interesting problem was query latency. The original implementation fanned out row-oriented scans per widget, which meant a dashboard with twelve charts issued twelve full-table reads. I replaced it with a columnar layer that batches widget queries into a single pass and caches partial aggregates by time bucket.",
@@ -279,9 +289,9 @@ export const site = {
         "Sustains 2B+ events/month on a three-node cluster",
         "Live updates over WebSockets with backpressure handling",
       ],
-      tags: ["Next.js", "Go", "ClickHouse", "WebSockets"],
+      tags: ["EJS", "Express", "MongoDB", "RESTapi"],
       liveUrl: "https://example.com",
-      repoUrl: "https://github.com/sinantk",
+      repoUrl: "https://github.com/Sinan-TK/jerseygarage",
       featured: true,
       image: "",
       gradient: ["#3f3f46", "#a1a1aa"],
@@ -352,44 +362,33 @@ export const site = {
   /* -- Work history ------------------------------------------------------- */
   experience: [
     {
-      company: "Nimbus Labs",
-      role: "Senior Full-Stack Engineer",
-      period: "2023 — Present",
-      location: "San Francisco, CA",
-      description:
-        "Lead engineer on the analytics platform. Rebuilt the query pipeline for 10× throughput and mentor a team of four.",
-      highlights: [
-        "Cut infrastructure spend 38% by redesigning the ingestion path",
-        "Shipped a design system now used across 6 product teams",
-        "Drove Core Web Vitals from 62 to 98 on the marketing site",
-      ],
-      url: "https://example.com",
-    },
-    {
-      company: "Vertex Digital",
+      company: "Freelancer",
       role: "Full-Stack Engineer",
-      period: "2021 — 2023",
+      period: "2026 — PRESENT",
       location: "Remote",
       description:
-        "Built client-facing products for fintech and healthcare companies, owning features end to end.",
+        "Building custom web applications for clients, handling projects end to end from frontend development and backend APIs to database design, deployment, and ongoing improvements.",
       highlights: [
-        "Delivered a HIPAA-compliant patient portal serving 90k users",
-        "Introduced end-to-end testing, dropping production incidents 55%",
+        "Developed responsive full-stack applications using React, Next.js, Node.js, and MongoDB",
+        "Designed RESTful APIs, authentication systems, and database architectures for client projects",
+        "Managed deployment and production workflows using services such as Vercel, Railway, and cloud infrastructure",
       ],
-      url: "https://example.com",
+      url: "https://sinan-tk.in",
     },
     {
-      company: "Stackbridge",
-      role: "Frontend Developer",
-      period: "2019 — 2021",
-      location: "Austin, TX",
+      company: "Brototype",
+      role: "MERN-Stack Developer",
+      period: "2025 — 2026",
+      location: "Calicut, India",
       description:
-        "First frontend hire. Established the component architecture and CI pipeline the team still uses today.",
+        "Developed production-style full-stack applications using the MERN stack, designing REST APIs, database architectures, authentication systems, and responsive React interfaces while following scalable and maintainable development practices.",
+
       highlights: [
-        "Migrated a legacy jQuery app to React with zero downtime",
-        "Reduced initial bundle size from 1.8 MB to 240 kB",
+        "Designed and implemented RESTful APIs with Node.js and Express.js",
+        "Built MongoDB schemas, aggregation pipelines, indexing strategies, and database relationships",
+        "Implemented secure authentication, authorization, sessions, and role-based access control",
       ],
-      url: "",
+      url: "https://www.brototype.com",
     },
   ],
 

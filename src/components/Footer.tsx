@@ -4,19 +4,10 @@ import { site } from "@/config/site";
 import { SocialIcon } from "./SocialIcon";
 
 export function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="border-t border-black/[0.07] py-10 dark:border-white/10">
       <div className="container-page">
-        <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
-          <div className="text-center sm:text-left">
-            <p className="text-sm font-medium">{site.name}</p>
-            <p className="mt-1 text-sm text-black/45 dark:text-white/45">
-              © {year} · Built with Next.js &amp; Tailwind CSS
-            </p>
-          </div>
-
+        <div className="flex items-center justify-center">
           <div className="flex items-center gap-1">
             {site.socials.map((social) => (
               <a
