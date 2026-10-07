@@ -35,15 +35,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  /* A locally hosted resume PDF is indexable content too. External links and
-     an empty setting (button hidden) are skipped. */
-  if (site.resumeUrl?.startsWith("/")) {
-    entries.push({
-      url: absolute(site.resumeUrl),
-      lastModified,
-    });
-  }
-
   /* Sitemaps must not list the same URL twice. */
   const seen = new Set<string>();
   return entries.filter(({ url }) => !seen.has(url) && !!seen.add(url));
