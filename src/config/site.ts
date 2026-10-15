@@ -177,6 +177,19 @@ export const site = {
     googleSiteVerification: "",
     /* Your @handle without the @, for Twitter/X cards. */
     twitterHandle: "sinantk",
+    /* Link previews (WhatsApp, LinkedIn, Telegram, X…). The image is a
+     * 1200×630 copy of your profile photo in /public — original untouched. */
+    social: {
+      title: "Sinan TK | Software Developer",
+      ogDescription:
+        "Explore my portfolio, projects, technical skills, and software development services.",
+      twitterDescription:
+        "Explore my portfolio, projects, and software development services.",
+      image: "/og-image.jpg",
+      imageWidth: 1200,
+      imageHeight: 630,
+      imageAlt: "Sinan TK — Software Developer",
+    },
   },
 
   /* -- Preloader ---------------------------------------------------------- */

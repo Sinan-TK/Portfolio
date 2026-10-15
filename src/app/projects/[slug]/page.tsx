@@ -41,11 +41,20 @@ export async function generateMetadata({
       url,
       title: `${project.title} — ${site.name}`,
       description: project.description,
+      images: [
+        {
+          url: site.seo.social.image,
+          width: site.seo.social.imageWidth,
+          height: site.seo.social.imageHeight,
+          alt: site.seo.social.imageAlt,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${project.title} — ${site.name}`,
       description: project.description,
+      images: [site.seo.social.image],
     },
   };
 }
