@@ -352,7 +352,7 @@ const ProfileCardComponent = ({
                     onClick={handleContactClick}
                     style={{ pointerEvents: 'auto' }}
                     type="button"
-                    aria-label={`Contact ${name || 'user'}`}
+                    aria-label={`${contactText}: ${name || 'user'}`}
                   >
                     {contactText}
                   </button>

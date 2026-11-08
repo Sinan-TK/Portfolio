@@ -8,13 +8,13 @@ import { site } from "@/config/site";
 import { markIntroReady } from "@/lib/intro";
 
 /** How long the first greeting holds — long enough to actually read it. */
-const FIRST_MS = 420;
+const FIRST_MS = 260;
 
 /** Each subsequent greeting. */
-const STEP_MS = 155;
+const STEP_MS = 70;
 
 /** Beat between the last greeting and the curtain lifting. */
-const HOLD_MS = 280;
+const HOLD_MS = 120;
 
 /** If `load` never fires (stalled image, dead third party), leave anyway. */
 const FAILSAFE = 6000;
@@ -160,7 +160,7 @@ export function Preloader() {
             className="no-print fixed inset-0 z-[200] flex items-center justify-center bg-zinc-950 text-white dark:bg-white dark:text-zinc-950"
             exit={{
               clipPath: "inset(0 0 100% 0)",
-              transition: { duration: 0.85, ease: EASE },
+              transition: { duration: 0.6, ease: EASE },
             }}
           >
             {/* dir="auto" so Arabic renders right-to-left.

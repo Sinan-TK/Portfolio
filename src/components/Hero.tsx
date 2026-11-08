@@ -17,8 +17,8 @@ const EASE = [0.21, 0.47, 0.32, 0.98] as const;
    else. All measured from when the preloader lets go. */
 const NAME_DELAY = 0.1;
 const LETTER_STAGGER = 0.042;
-const PHOTO_DELAY = 0.95;
-const REST_DELAY = 1.45;
+const PHOTO_DELAY = 0.3;
+const REST_DELAY = 0.75;
 
 /**
  * Reveals text one letter at a time, each rising from just below.
@@ -142,13 +142,24 @@ export function Hero() {
         {site.heroPhoto && (
           <motion.div
             aria-hidden
-            initial={{ opacity: 0, scale: 0.94, y: 26 }}
-            animate={play ? { opacity: 1, scale: 1, y: 0 } : undefined}
-            transition={{ delay: PHOTO_DELAY, duration: 1, ease: EASE }}
+            /* No opacity fade: the server-rendered photo has to be visible for
+                the browser to count it as the page's main paint. The preloader
+                covers it until the curtain lifts anyway. */
+            initial={{ scale: 0.94, y: 26 }}
+            animate={play ? { scale: 1, y: 0 } : undefined}
+            transition={{ delay: PHOTO_DELAY, duration: 0.7, ease: EASE }}
             className="pointer-events-none relative w-[var(--photo)] select-none"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={site.heroPhoto} alt="" className="w-full grayscale" />
+            <img
+              src={site.heroPhoto}
+              alt=""
+              width={1254}
+              height={1254}
+              fetchPriority="high"
+              decoding="async"
+              className="w-full grayscale"
+            />
           </motion.div>
         )}
 

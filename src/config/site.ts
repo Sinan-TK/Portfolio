@@ -95,7 +95,7 @@ export const site = {
 
   /* Your photo, sitting behind the hero name. A cut-out with a transparent
    * background reads best — the name overlaps its lower half. Set "" to hide. */
-  heroPhoto: "/squaredp.png",
+  heroPhoto: "/squaredp.webp",
 
   /* One line under the hero. Sell yourself in ~20 words. */
   tagline:
@@ -120,7 +120,7 @@ export const site = {
   /* -- Profile card (hero) ------------------------------------------------ */
   /* Swap in a real photo: drop it in /public and point this at it, e.g.
    * "/me.jpg". A portrait crop around 3:4 fits the card frame best. */
-  avatarUrl: "/profile.png",
+  avatarUrl: "/avatar.webp",
   /** Shown under your name on the card, rendered as @handle. */
   handle: "sinantk",
 
@@ -283,20 +283,41 @@ export const site = {
    * screenshot instead of the gradient. */
   projects: [
     {
+      title: "ZK Fitness",
+      description:
+        "Gym management software that keeps memberships, class schedules, payments, and member progress organized in one place - so staff can spend less time on admin and more time supporting members.",
+      overview: [
+        "ZK Fitness is a gym management platform that helps fitness businesses manage memberships, class schedules, payments, and member progress from one place. It gives staff a clearer view of daily operations while making it easier for members to stay engaged.",
+        "The main challenge was bringing front-desk workflows and the member experience together. I designed the system around a shared schedule and membership record, with straightforward tools for bookings, check-ins, billing, and progress tracking.",
+      ],
+      highlights: [
+        "Manage memberships, renewals, and payments in one place",
+        "Schedule classes and let members book sessions online",
+        "Track attendance and member progress",
+      ],
+      tags: ["Monorepo", "Express", "React", "TypeScript", "Prisma", "RESTapi"],
+      liveUrl: "",
+      repoUrl: "https://github.com/zaskampany/zk-fitness",
+      featured: true,
+      image: "/projects/zkfitness.webp",
+      gradient: ["#3f3f46", "#a1a1aa"],
+      year: "2025",
+    },
+    {
       title: "Jersey Garage",
       description:
         "A full-stack e-commerce platform for sports jerseys, featuring product discovery, advanced filtering, cart and checkout flows, secure authentication, order management, and an admin dashboard. Built to deliver a fast, responsive shopping experience across devices.",
       overview: [
-        "Orbit is a product analytics platform built for teams that had outgrown off-the-shelf tools but didn't want to run their own warehouse. It ingests roughly two billion events a month and keeps dashboards interactive while doing it.",
-        "The interesting problem was query latency. The original implementation fanned out row-oriented scans per widget, which meant a dashboard with twelve charts issued twelve full-table reads. I replaced it with a columnar layer that batches widget queries into a single pass and caches partial aggregates by time bucket.",
+        "JerseyGarage is an online store for fans to discover and shop jerseys from their favorite teams. The site brings product browsing, jersey details, and a smooth checkout experience together in one place.",
+        "The goal was to make it easy for fans to find the right jersey, compare styles, and shop confidently across devices. Clear categories, detailed product pages, and a streamlined cart help turn browsing into a simple purchase.",
       ],
       highlights: [
-        "Cut p95 dashboard load from 4.2s to 380ms",
-        "Sustains 2B+ events/month on a three-node cluster",
-        "Live updates over WebSockets with backpressure handling",
+        "Browse jerseys by team, league, and style",
+        "View product details, sizes, and pricing",
+        "Enjoy a simple, mobile-friendly shopping experience",
       ],
       tags: ["EJS", "Express", "MongoDB", "RESTapi"],
-      liveUrl: "https://example.com",
+      liveUrl: "",
       repoUrl: "https://github.com/Sinan-TK/jerseygarage",
       featured: true,
       image: "",
@@ -304,65 +325,91 @@ export const site = {
       year: "2025",
     },
     {
-      title: "Kanban Zero",
+      title: "Mahar Caterers",
       description:
-        "An offline-first project board with CRDT-based sync. Works fully without a network and reconciles conflict-free when you come back online.",
-      tags: ["React", "TypeScript", "IndexedDB", "Yjs"],
-      liveUrl: "https://example.com",
-      repoUrl: "https://github.com/sinantk",
-      featured: true,
-      image: "",
+        "A catering service website that showcases event menus, food packages, photos, customer reviews, and easy inquiry or booking options - all in one place.",
+      tags: ["React", "TypeScript", "NextJS"],
+      liveUrl: "https://www.maharcaterers.com",
+      repoUrl: "https://github.com/Sinan-TK/mahar-caterers",
+      featured: false,
+      image: "/projects/maharcaters.webp",
       gradient: ["#18181b", "#71717a"],
-      year: "2024",
+      year: "2026",
     },
     {
-      title: "Lumen UI",
+      title: "Modern Caters",
       description:
-        "An accessible React component library with 48 primitives, full keyboard support and a 14 kB gzipped core. 3.2k stars on GitHub.",
-      tags: ["React", "Radix", "Tailwind", "Storybook"],
-      liveUrl: "https://example.com",
-      repoUrl: "https://github.com/sinantk",
+        "A catering service website that showcases event menus, food packages, photos, customer reviews, and easy inquiry or booking options - all in one place.",
+      tags: ["React", "TypeScript", "NextJS"],
+      liveUrl: "https://www.moderncaterstcr.com",
+      repoUrl: "https://github.com/zaskampany/modern-catering",
       featured: false,
-      image: "",
-      gradient: ["#52525b", "#d4d4d8"],
-      year: "2024",
+      image: "/projects/moderncaters.webp",
+      gradient: ["#18181b", "#71717a"],
+      year: "2026",
     },
     {
-      title: "Shipyard CLI",
+      title: "Brave Caters",
       description:
-        "A zero-config deployment CLI for monorepos. Detects your framework, builds a minimal container and ships it in under 60 seconds.",
-      tags: ["Go", "Docker", "AWS"],
-      liveUrl: "",
-      repoUrl: "https://github.com/sinantk",
-      featured: false,
-      image: "",
-      gradient: ["#27272a", "#8f8f99"],
-      year: "2023",
-    },
-    {
-      title: "Ferry",
-      description:
-        "A type-safe webhook gateway with automatic retries, replay and signature verification. Processes 8M deliveries a day for 200+ customers.",
-      tags: ["TypeScript", "Redis", "Kubernetes"],
-      liveUrl: "https://example.com",
+        "A catering service website that showcases event menus, food packages, photos, customer reviews, and easy inquiry or booking options - all in one place.",
+      tags: ["React", "TypeScript", "NextJS"],
+      liveUrl: "https://www.bravecaters.in",
       repoUrl: "",
       featured: false,
-      image: "",
-      gradient: ["#09090b", "#52525b"],
-      year: "2023",
+      image: "/projects/bravecaters.webp",
+      gradient: ["#18181b", "#71717a"],
+      year: "2026",
     },
-    {
-      title: "Palette Lab",
-      description:
-        "A browser tool for generating WCAG-compliant color systems. Computes contrast across every pair and exports to Tailwind, CSS or Figma.",
-      tags: ["React", "Canvas", "Color Science"],
-      liveUrl: "https://example.com",
-      repoUrl: "https://github.com/sinantk",
-      featured: false,
-      image: "",
-      gradient: ["#3f3f46", "#e4e4e7"],
-      year: "2022",
-    },
+    // https://github.com/Sinan-TK/brave-catering-and-events
+
+    // {
+    //   title: "Lumen UI",
+    //   description:
+    //     "An accessible React component library with 48 primitives, full keyboard support and a 14 kB gzipped core. 3.2k stars on GitHub.",
+    //   tags: ["React", "Radix", "Tailwind", "Storybook"],
+    //   liveUrl: "https://example.com",
+    //   repoUrl: "https://github.com/sinantk",
+    //   featured: false,
+    //   image: "",
+    //   gradient: ["#52525b", "#d4d4d8"],
+    //   year: "2024",
+    // },
+    // {
+    //   title: "Shipyard CLI",
+    //   description:
+    //     "A zero-config deployment CLI for monorepos. Detects your framework, builds a minimal container and ships it in under 60 seconds.",
+    //   tags: ["Go", "Docker", "AWS"],
+    //   liveUrl: "",
+    //   repoUrl: "https://github.com/sinantk",
+    //   featured: false,
+    //   image: "",
+    //   gradient: ["#27272a", "#8f8f99"],
+    //   year: "2023",
+    // },
+    // {
+    //   title: "Ferry",
+    //   description:
+    //     "A type-safe webhook gateway with automatic retries, replay and signature verification. Processes 8M deliveries a day for 200+ customers.",
+    //   tags: ["TypeScript", "Redis", "Kubernetes"],
+    //   liveUrl: "https://example.com",
+    //   repoUrl: "",
+    //   featured: false,
+    //   image: "",
+    //   gradient: ["#09090b", "#52525b"],
+    //   year: "2023",
+    // },
+    // {
+    //   title: "Palette Lab",
+    //   description:
+    //     "A browser tool for generating WCAG-compliant color systems. Computes contrast across every pair and exports to Tailwind, CSS or Figma.",
+    //   tags: ["React", "Canvas", "Color Science"],
+    //   liveUrl: "https://example.com",
+    //   repoUrl: "https://github.com/sinantk",
+    //   featured: false,
+    //   image: "",
+    //   gradient: ["#3f3f46", "#e4e4e7"],
+    //   year: "2022",
+    // },
   ],
 
   /* -- Work history ------------------------------------------------------- */

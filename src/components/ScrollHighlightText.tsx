@@ -7,7 +7,9 @@ import { useReducedMotion } from "framer-motion";
 import ScrollHighlight from "./ScrollHighlight";
 import ScrollHighlightGroup from "./ScrollHighlightGroup";
 
-const DIM = { light: "rgba(10, 10, 11, 0.18)", dark: "rgba(250, 250, 250, 0.16)" };
+/* Dim (not yet read) text still has to clear WCAG AA contrast (4.5:1) against
+   the page background, or Lighthouse flags every word in the paragraph. */
+const DIM = { light: "rgba(10, 10, 11, 0.62)", dark: "rgba(250, 250, 250, 0.5)" };
 const LIT = { light: "#0a0a0b", dark: "#fafafa" };
 
 /**

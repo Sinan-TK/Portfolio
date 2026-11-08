@@ -96,7 +96,7 @@ export function Header() {
         <motion.div
           initial={{ opacity: 0, y: -16 }}
           animate={play ? { opacity: 1, y: 0 } : undefined}
-          transition={{ delay: 1.45, duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+          transition={{ delay: 0.75, duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="flex w-full items-start justify-between gap-3 px-3 py-3 sm:px-5 sm:py-4"
         >
           {/* ── 1. Avatar + name ────────────────────────────────────── */}
